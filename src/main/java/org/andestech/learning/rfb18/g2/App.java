@@ -26,7 +26,7 @@ public class App
         //....
 
         File lib = new File("e:\\datas\\library.bin");
-
+//
 //        try(ObjectOutputStream oos = new ObjectOutputStream(
 //                new FileOutputStream(lib)
 //        ))
