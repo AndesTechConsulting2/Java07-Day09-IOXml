@@ -14,6 +14,7 @@ public class AppXmlLib {
     App.feedLibrary();
 
     Library library = new Library(App.library);
+    System.out.println(library.getBooks());
 
 
 
