@@ -6,10 +6,10 @@ import java.util.ArrayList;
 
 public class App
 {
-    public static void main( String[] args )
-    {
+    public static ArrayList<Book> library;
 
-        ArrayList<Book> library =
+    public static void feedLibrary(){
+        library =
                 new ArrayList<>(10);
 
         library.add(new Book(1898, "Джек Лондон", "Белое Безмолвие" ));
@@ -23,18 +23,27 @@ public class App
         library.add(new Book(1965, "Василий Шукшин", "Калина красная" ));
 
 
+
+    }
+
+    public static void main( String[] args )
+    {
+
+        feedLibrary();
         //....
 
         File lib = new File("e:\\datas\\library.bin");
-//
-//        try(ObjectOutputStream oos = new ObjectOutputStream(
-//                new FileOutputStream(lib)
-//        ))
-//        {
-//            oos.writeObject(library);
-//
-//        }
-//        catch (IOException ex){ex.printStackTrace();}
+
+        try(ObjectOutputStream oos = new ObjectOutputStream(
+                new FileOutputStream(lib)
+        ))
+        {
+            oos.writeObject(library);
+
+        }
+        catch (IOException ex){ex.printStackTrace();}
+
+
 
         ArrayList<Book> library2 = null;
 
