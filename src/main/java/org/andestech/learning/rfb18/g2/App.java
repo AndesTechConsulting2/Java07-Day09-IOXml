@@ -1,10 +1,7 @@
 package org.andestech.learning.rfb18.g2;
 
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 
 public class App
@@ -30,17 +27,28 @@ public class App
 
         File lib = new File("e:\\datas\\library.bin");
 
-        try(ObjectOutputStream oos = new ObjectOutputStream(
-                new FileOutputStream(lib)
+//        try(ObjectOutputStream oos = new ObjectOutputStream(
+//                new FileOutputStream(lib)
+//        ))
+//        {
+//            oos.writeObject(library);
+//
+//        }
+//        catch (IOException ex){ex.printStackTrace();}
+
+        ArrayList<Book> library2 = null;
+
+        try(ObjectInputStream ois = new ObjectInputStream(
+                new FileInputStream(lib)
         ))
         {
-            oos.writeObject(library);
+            library2 =  (ArrayList<Book>) ois.readObject();
 
         }
-        catch (IOException ex){ex.printStackTrace();}
+        catch (IOException | ClassNotFoundException ex){ex.printStackTrace();}
 
 
-
+        System.out.println(library2);
 
 
     }
